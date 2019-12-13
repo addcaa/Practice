@@ -19,7 +19,9 @@
         "php": ">=5.4.0",
         "topthink/framework": "5.0.*",
         "topthink/think-queue": "1.1.6",
-        "ext-redis": "*"
+        "ext-redis": "*",
+	"phpoffice/phpspreadsheet": "dev-master",
+        "topthink/think-swoole": "2.0.*"
     },
     "autoload": {
         "psr-4": {
