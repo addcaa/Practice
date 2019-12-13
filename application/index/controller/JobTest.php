@@ -30,7 +30,7 @@ class JobTest {
 
         // database 驱动时，返回值为 1|false  ;   redis 驱动时，返回值为 随机字符串|false
         if( $isPushed !== false ){
-            echo date('Y-m-d H:i:s') . " a new Hello Job is Pushed to the MQ"."<br>";
+            echo date('Y-m-d H:i:s') . "测试成功"."<br>";
         }else{
             echo 'Oops, something went wrong.';
         }

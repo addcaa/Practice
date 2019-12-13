@@ -5,6 +5,7 @@
  */
 namespace app\index\job;
 
+use think\Db;
 use think\queue\Job;
 
 class Hello {
@@ -23,7 +24,8 @@ class Hello {
             return;
         }
 
-        $isJobDone = $this->doHelloJob($data);
+//        $isJobDone = $this->doHelloJob($data);
+        $isJobDone = $this->user();
 
         if ($isJobDone) {
             // 如果任务执行成功， 记得删除任务
@@ -51,6 +53,23 @@ class Hello {
     private function checkDatabaseToSeeIfJobNeedToBeDone($data){
         return true;
     }
+
+    /**
+     * 检测数据是否有值
+     *
+     */
+
+    private function user(){
+        //获取用户列表
+        $user_list =Db::name('user')->select();
+        //没有用户列表，删除任务
+        if(empty($user_list)){
+            echo "没有用户列表\n";
+            return true;
+        }
+
+    }
+
 
     /**
      * 根据消息中的数据进行实际的业务处理...
