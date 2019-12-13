@@ -14,6 +14,10 @@ class Datebase{
             echo "待处理数据格式错误，删除\n";
             $job->delete();
         }
+        if($msm_info){
+            echo "<pre>";
+            print_r($msm_info);
+        }
 
         //任务执行超过1次，则删除任务
         if ($job->attempts() > 0) {
