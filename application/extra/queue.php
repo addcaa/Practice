@@ -7,35 +7,31 @@ use think\Env;
 
 
 return [
-    //sync驱动表示取消消息队列还原为同步执行
-    //'connector' => 'Sync',
+    'connector'  => 'Redis',		// Redis 驱动
+    'expire'     => 60,		// 任务的过期时间，默认为60秒; 若要禁用，则设置为 null
+    'default'    => 'default',		// 默认的队列名称
+    'host'       => '127.0.0.1',	// redis 主机ip
+    'port'       => 6379,		// redis 端口
+    'password'   => '123456',		// redis 密码
+    'select'     => 0,		// 使用哪一个 db，默认为 db0
+    'timeout'    => 0,		// redis连接的超时时间
+    'persistent' => false,		// 是否是长连接
 
-    //Redis驱动
-    'connector' => 'redis',
-    "expire"=>60,//任务过期时间默认为秒，禁用为null
-    "default"=>"default",//默认队列名称
-    "host"=>Env::get("redis.host", "127.0.0.1"),//Redis主机IP地址
-    "port"=>Env::get("redis.port", 6379),//Redis端口
-    "password"=>Env::get("redis.password", "123456"),//Redis密码
-    "select"=>5,//Redis数据库索引
-    "timeout"=>0,//Redis连接超时时间
-    "persistent"=>false,//是否长连接
+    //    'connector' => 'Database',   // 数据库驱动
+    //    'expire'    => 60,           // 任务的过期时间，默认为60秒; 若要禁用，则设置为 null
+    //    'default'   => 'default',    // 默认的队列名称
+    //    'table'     => 'jobs',       // 存储消息的表名，不带前缀
+    //    'dsn'       => [],
 
-    //Database驱动
-    //"connector"=>"Database",//数据库驱动
-    //"expire"=>60,//任务过期时间，单位为秒，禁用为null
-    //"default"=>"default",//默认队列名称
-    //"table"=>"jobs",//存储消息的表明，不带前缀
-    //"dsn"=>[],
+    //    'connector'   => 'Topthink',	// ThinkPHP内部的队列通知服务平台 ，本文不作介绍
+    //    'token'       => '',
+    //    'project_id'  => '',
+    //    'protocol'    => 'https',
+    //    'host'        => 'qns.topthink.com',
+    //    'port'        => 443,
+    //    'api_version' => 1,
+    //    'max_retries' => 3,
+    //    'default'     => 'default',
 
-    //Topthink驱动 ThinkPHP内部的队列通知服务平台
-    //"connector"=>"Topthink",
-    //"token"=>"",
-    //"project_id"=>"",
-    //"protocol"=>"https",
-    //"host"=>"qns.topthink.com",
-    //"port"=>443,
-    //"api_version"=>1,
-    //"max_retries"=>3,
-    //"default"=>"default"
+    //    'connector'   => 'Sync',		// Sync 驱动，该驱动的实际作用是取消消息队列，还原为同步执行
 ];
