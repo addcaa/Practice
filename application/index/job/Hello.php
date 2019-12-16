@@ -58,7 +58,6 @@ class Hello {
      * 检测数据是否有值
      *
      */
-
     private function user(){
         //获取用户列表
         $user_list =Db::name('user')->select();

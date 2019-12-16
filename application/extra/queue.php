@@ -33,5 +33,5 @@ return [
     //    'max_retries' => 3,
     //    'default'     => 'default',
 
-    //    'connector'   => 'Sync',		// Sync 驱动，该驱动的实际作用是取消消息队列，还原为同步执行
+//        'connector'   => 'Sync',		// Sync 驱动，该驱动的实际作用是取消消息队列，还原为同步执行
 ];
